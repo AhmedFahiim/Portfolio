@@ -1,0 +1,40 @@
+@use "../../../SASS/Variables" as *;
+@use "../../../SASS/Mixins" as *;
+
+.social-bar {
+  @include flex(row, flex-start, center);
+  margin-bottom: 20px;
+  .data-key {
+    width: 40%;
+    font-size: 17px;
+    text-transform: uppercase;
+    color: $main-text-color;
+  }
+  .data-value {
+    color: $pale-white;
+    font-size: 17px;
+  }
+  .underlined-holder {
+    margin: 0;
+    a {
+      text-transform: lowercase;
+    }
+  }
+}
+
+// start media queries
+@include media(mobile) {
+  .social-bar {
+    .data-key {
+      width: 40%;
+    }
+  }
+}
+@include media(smallToLarge) {
+  .social-bar {
+    .data-key {
+      width: 60%;
+    }
+  }
+}
+// end media queries

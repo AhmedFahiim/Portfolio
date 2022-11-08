@@ -1,0 +1,79 @@
+@use "../../../SASS/Variables" as *;
+@use "../../../SASS/Mixins" as *;
+
+.skills-box {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+  .skill {
+    margin-bottom: 35px;
+    .skill-name {
+      color: $main-text-color;
+      text-transform: uppercase;
+      font-size: 16px;
+      font-weight: normal;
+      margin-bottom: 8px;
+    }
+    .proccess-bar-holder {
+      position: relative;
+      height: 1px;
+      background-color: #333;
+      .proccess-bar {
+        position: relative;
+        display: block;
+        background-color: $gold-color;
+        height: 100%;
+        width: 0%;
+        .percentage {
+          position: absolute;
+          background-color: rgba(255, 255, 255, 0.05);
+          top: -39px;
+          right: -20px;
+          font-size: 14px;
+          color: $gold-color;
+          padding: 2px 8px;
+          opacity: 0;
+          &::after {
+            position: absolute;
+            content: "";
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 6px;
+            border-style: solid;
+            border-color: rgba(255, 255, 255, 0.05) transparent transparent
+              transparent;
+          }
+        }
+      }
+    }
+  }
+  .main-paragraph {
+    margin-top: 40px;
+    font-size: 20px;
+    width: 70%;
+  }
+  &.active {
+    position: static;
+    opacity: 1;
+    z-index: 1;
+    pointer-events: none;
+    .skill {
+      .proccess-bar {
+        .percentage {
+          opacity: 1;
+          transition: $transition;
+        }
+      }
+    }
+  }
+}
+
+@include media(mobile) {
+  .skills-box {
+    .main-paragraph {
+      width: 100%;
+    }
+  }
+}

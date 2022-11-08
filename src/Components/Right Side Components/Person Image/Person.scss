@@ -1,0 +1,76 @@
+@use "../../../SASS/Variables" as *;
+@use "../../../SASS/Mixins" as *;
+
+.person {
+  position: relative;
+  width: 80%;
+  margin: auto;
+  &::after {
+    width: 111%;
+    height: 122%;
+    top: -11%;
+    left: -5.5%;
+  }
+  &::before {
+    width: 120%;
+    height: 112%;
+    top: -6%;
+    left: -10%;
+  }
+  &::after,
+  &::before {
+    position: absolute;
+    content: "";
+    border: 1px solid rgba(#fff, 0.2);
+    transition: $transition;
+  }
+  .person-image {
+    img {
+      max-width: 100%;
+      object-fit: cover;
+    }
+  }
+  .person-data {
+    margin: 10px 0;
+    text-align: center;
+    .hi-word {
+      color: $main-text-color;
+      text-transform: uppercase;
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .active-word-holder {
+      position: relative;
+      min-height: 36px;
+      .active-word {
+        color: $pale-white;
+        font-size: 25px;
+        font-weight: 500;
+        letter-spacing: 1px;
+      }
+      .bracet {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #44993b;
+        font-weight: 500;
+        font-size: 35px;
+        opacity: 0;
+        animation: fade 1.7s infinite alternate;
+        &.left {
+          left: 10px;
+        }
+        &.right {
+          right: 10px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fade {
+  100% {
+    opacity: 1;
+  }
+}

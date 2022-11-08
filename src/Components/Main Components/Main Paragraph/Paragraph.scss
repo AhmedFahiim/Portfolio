@@ -1,0 +1,15 @@
+@use "../../../SASS/Variables" as *;
+@use "../../../SASS/Mixins" as *;
+
+.main-paragraph {
+  font-size: 30px;
+  color: $main-text-color;
+}
+
+// start media queries
+@include media(mobile) {
+  .main-paragraph {
+    font-size: 22px;
+  }
+}
+// end media queries

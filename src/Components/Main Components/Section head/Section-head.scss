@@ -1,0 +1,33 @@
+@use "../../../SASS//Variables" as *;
+@use "../../../SASS//Mixins" as *;
+
+.sec-head {
+  .small-head {
+    color: $gold-color;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    font-weight: 500;
+  }
+  .main-head {
+    color: $pale-white;
+    font-size: 45px;
+    font-weight: 500;
+  }
+  .line {
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 150px;
+    height: 1px;
+    margin-top: 10px;
+  }
+}
+
+// start media queries
+@include media(mobile) {
+  .sec-head {
+    .main-head {
+      font-size: 35px;
+    }
+  }
+}
+// end media queries

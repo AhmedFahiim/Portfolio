@@ -1,0 +1,20 @@
+@use "../SASS/Mixins" as *;
+@use "../SASS/Variables" as *;
+
+.left-side {
+  width: 50%;
+  transition: $transition;
+  &.scrolled {
+    @include media(MedToInf) {
+      width: 60%;
+    }
+  }
+}
+
+// start media queries
+@include media(MobileToLarge) {
+  .left-side {
+    width: 100%;
+  }
+}
+// end media queries

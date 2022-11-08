@@ -1,0 +1,92 @@
+@use "../../../SASS/Mixins" as *;
+@use "../../../SASS/Variables" as *;
+
+.about {
+  padding: 80px 0;
+  .about-section-head {
+    .main-paragraph {
+      margin-top: 40px;
+      text-transform: capitalize;
+    }
+  }
+  .social-data {
+    margin: 65px 0;
+    .row {
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .download-col {
+      a {
+        text-decoration: none;
+      }
+      .download-wraper {
+        @include flex(column, center, center);
+        position: relative;
+        border: 1px solid rgba(#fff, 0.2);
+        transition: $transition;
+        padding: 30px 0;
+        cursor: pointer;
+        .down-box {
+          max-width: 100%;
+          width: 25%;
+        }
+        .down-arrow {
+          position: absolute;
+          top: 30%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 22%;
+        }
+        .down-arrow,
+        .down-box {
+          filter: invert(99%) sepia(10%) saturate(446%) hue-rotate(240deg)
+            brightness(110%) contrast(73%);
+        }
+        .down-word {
+          color: $main-text-color;
+          font-size: 20px;
+          margin-top: 15px;
+          font-weight: 500;
+          text-transform: uppercase;
+        }
+        &:hover {
+          border-color: $gold-color;
+          .down-arrow {
+            animation: Movment 1s infinite alternate;
+          }
+        }
+      }
+    }
+  }
+  .skills-education {
+    .info-boxs-holder {
+      padding: 20px 0;
+      opacity: 0;
+      transform: rotateX(15deg) rotateY(15deg);
+      &.active {
+        opacity: 1;
+        transform: rotate(0deg) rotateY(0deg);
+        transition: 1.3s;
+      }
+    }
+  }
+}
+
+// start media queries
+@include media(MobileToLarge) {
+  .about {
+    .social-data {
+      .row {
+        gap: 15px;
+      }
+    }
+  }
+}
+// end media queries
+
+// arrow animation
+@keyframes Movment {
+  100% {
+    top: 35%;
+  }
+}

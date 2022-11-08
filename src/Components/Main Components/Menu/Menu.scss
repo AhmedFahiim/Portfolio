@@ -1,0 +1,160 @@
+@use "../../../SASS/Mixins" as *;
+@use "../../../SASS/Variables" as *;
+
+$trans-delay: 0.5s;
+
+.menu-over-lay {
+  .over-lay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: $body-BG-color;
+    opacity: 0.9;
+    transition: $transition + 0.5 ease-out;
+    z-index: 2;
+    &.show {
+      width: 100%;
+    }
+    @include media(MobileToLarge) {
+      display: none;
+    }
+  }
+  .menu {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background-color: rgba($clients-BG-color, 0.8);
+    transition: $transition + 0.5;
+    z-index: 3;
+    &.show {
+      width: 42%;
+    }
+    &.show.scrolled {
+      @include media(MedToInf) {
+        width: 32%;
+      }
+    }
+    .button-holder {
+      position: absolute;
+      top: 30px;
+      right: -60px;
+      transition: $transition + 0.3;
+      transition-delay: 0.5s;
+      &.active {
+        right: 30px;
+      }
+      .main-button {
+        font-size: 35px;
+        &:hover {
+          font-size: 25px;
+        }
+      }
+    }
+    .content-holder {
+      padding: {
+        top: 100px;
+        left: 100px;
+      }
+      .menu-word {
+        color: $main-text-color;
+        text-transform: uppercase;
+        font-size: 20px;
+        margin-bottom: 30px;
+      }
+      .menu-list {
+        .list-item {
+          position: relative;
+          left: 100px;
+          opacity: 0;
+          margin-bottom: 12px;
+          transition: $transition + 0.3 ease-out, opacity $transition + 0.6;
+          &.active-item {
+            left: 0;
+            opacity: 1;
+            // adding transition-delay
+            @for $i from 1 to 8 {
+              &:nth-child(#{$i}) {
+                transition-delay: $trans-delay;
+              }
+              $trans-delay: $trans-delay + 0.2;
+            }
+          }
+          a {
+            font-size: 28px;
+            color: $pale-white;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: $transition;
+            &:hover {
+              color: $gold-color;
+            }
+          }
+        }
+      }
+    }
+    .social-and-developed {
+      position: relative;
+      top: 100px;
+      opacity: 0;
+      transition: top $transition + 0.2, opacity $transition + 0.6;
+      &.active {
+        top: 50px;
+        opacity: 1;
+        transition-delay: 2.2s;
+      }
+    }
+  }
+}
+
+// start Menu meida queries
+@include media(MobileToLarge) {
+  .menu-over-lay {
+    .menu {
+      &.show {
+        width: 100%;
+      }
+    }
+  }
+}
+@include media(medium) {
+  .menu-over-lay {
+    .menu {
+      .content-holder {
+        padding: {
+          top: 100px;
+          left: 50px;
+        }
+      }
+    }
+  }
+}
+@include media(small) {
+  .menu-over-lay {
+    .menu {
+      .content-holder {
+        padding: {
+          top: 100px;
+          left: 120px;
+        }
+      }
+    }
+  }
+}
+@include media(mobile) {
+  .menu-over-lay {
+    .menu {
+      .content-holder {
+        padding: {
+          top: 100px;
+          left: 50px;
+        }
+      }
+    }
+  }
+}
+
+// end Menu meida queries

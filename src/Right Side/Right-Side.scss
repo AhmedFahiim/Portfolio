@@ -1,0 +1,95 @@
+@use "../SASS/Variables" as *;
+@use "../SASS/Mixins" as *;
+
+.right-side {
+  @include flex(row, center, center);
+  background-color: $body-BG-color;
+  position: fixed;
+  z-index: 2;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 42%;
+  padding: 100px 70px;
+  border-left: 1px solid rgba(#fff, 0.2);
+  transition: $transition + 0.3;
+  .main-side-content {
+    max-height: 100%;
+    .underlined-holder {
+      position: relative;
+      top: 80px;
+      margin: auto;
+      &::before {
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: -22px;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #44993b;
+      }
+      .text {
+        color: $main-text-color;
+      }
+      &:hover {
+        .text {
+          color: $pale-white;
+        }
+      }
+    }
+  }
+  &:hover {
+    .main-side-content {
+      .person::after,
+      .person::before {
+        border-color: rgba(#fff, 0.3);
+      }
+    }
+  }
+}
+
+// start media queries
+@include media(mobile) {
+  .right-side {
+    padding: 120px 20px 60px;
+    .underlined-holder {
+      left: 6px;
+      a {
+        font-size: 15px;
+      }
+    }
+  }
+}
+@include media(medium) {
+  .right-side {
+    padding: 50px 20px;
+  }
+}
+@include media(MobileToLarge) {
+  .right-side {
+    position: static;
+    border: none;
+    order: -1;
+    width: 100%;
+  }
+}
+// start media in scroll event
+@include media(MedToInf) {
+  .right-side.scrolled {
+    width: 32%;
+  }
+}
+@media (min-width: 992px) and (max-width: 1290px) {
+  .right-side.scrolled {
+    padding: 100px 20px;
+    .underlined-holder {
+      left: 5px;
+      .text {
+        font-size: 14px;
+      }
+    }
+  }
+}
+// end media queries

@@ -1,0 +1,56 @@
+@use "../../../SASS/Variables" as *;
+@use "../../../SASS/Mixins" as *;
+
+.services {
+  padding-top: 80px;
+  .section-head {
+    .main-paragraph {
+      margin-top: 25px;
+    }
+  }
+  .services-box {
+    margin: 50px 0;
+    .info-box {
+      @include flex(row, space-between, center);
+      padding: 0;
+      .info-box-data {
+        padding: 40px 50px 40px 40px;
+        flex-basis: 75%;
+        border-right: 1px solid rgba(#fff, 0.05);
+      }
+      .info-box-price {
+        @include flex(column, center, center);
+        flex-basis: 25%;
+      }
+    }
+  }
+  .note {
+    font-size: 14px;
+    color: $main-text-color;
+  }
+}
+
+// start media queries
+@include media(mobile) {
+  .services {
+    padding-top: 50px;
+    .services-box {
+      .info-box {
+        flex-direction: column;
+        &::after {
+          display: none;
+        }
+        .info-box-data {
+          text-align: center;
+          padding: 20px;
+          border-right: none;
+          border-bottom: 1px solid rgba(#fff, 0.05);
+        }
+        .info-box-price {
+          padding: 20px;
+        }
+      }
+    }
+  }
+}
+// end media queries

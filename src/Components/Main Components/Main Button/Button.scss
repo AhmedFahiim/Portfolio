@@ -1,0 +1,18 @@
+@use "../../../SASS/Variables" as *;
+@use "../../../SASS/Mixins" as *;
+
+.main-button {
+  @include flex(row, center, center);
+  background-color: transparent;
+  color: $main-text-color;
+  transition: $transition;
+  outline: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 25px;
+  padding: 8px 12px;
+  &:hover {
+    color: $gold-color;
+    border: 1px solid $gold-color;
+  }
+}

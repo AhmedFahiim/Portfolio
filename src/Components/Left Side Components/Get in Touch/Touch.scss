@@ -1,0 +1,109 @@
+@use "../../../SASS/Variables" as *;
+@use "../../../SASS/Mixins" as *;
+
+.contact {
+  padding: 180px 0;
+  .section-head {
+    .main-paragraph {
+      margin: 20px 0 40px;
+    }
+  }
+  .form {
+    .input-holder {
+      position: relative;
+      margin-bottom: 30px;
+      transition: $transition;
+      .form-item {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        background-color: transparent;
+        color: $pale-white;
+        font-size: 17px;
+        padding: 25px;
+        transition: $transition;
+        caret-color: $gold-color;
+        outline: none;
+        border: none;
+        border: 1px solid rgba(#fff, 0.3);
+        &::-webkit-inner-spin-button,
+        &::-webkit-outter-spin-button {
+          display: none;
+        }
+        &:hover {
+          border-color: rgba(#fff, 0.5);
+        }
+        &:focus {
+          border-color: $gold-color;
+          & + .type-holder {
+            background-color: $body-BG-color;
+            top: 0;
+            left: 20px;
+            font-size: 16px;
+            padding: 8px 15px;
+            z-index: 3;
+          }
+        }
+      }
+      .type-holder {
+        position: absolute;
+        top: 35px;
+        left: 35px;
+        transform: translateY(-50%);
+        color: $main-text-color;
+        font-size: 22px;
+        transition: 0.2s;
+      }
+      textarea {
+        resize: none;
+      }
+    }
+    .main-button {
+      width: 100%;
+      color: $pale-white;
+      font-size: 25px;
+      padding: 20px 0;
+      border: 1px solid rgba(#fff, 0.3);
+      font-family: "Jost", sans-serif;
+      &:hover {
+        border-color: $gold-color;
+        color: $gold-color;
+      }
+    }
+  }
+  .living-data-holder {
+    margin-top: 100px;
+    .living-data {
+      margin-bottom: 55px;
+      width: fit-content;
+      .living-data-head {
+        color: $main-text-color;
+        text-transform: uppercase;
+        font-size: 15px;
+        margin-bottom: 10px;
+      }
+      .living-data-disc {
+        color: $pale-white;
+        font-size: 25px;
+        text-decoration: none;
+        transition: $transition;
+        &.phone:hover {
+          color: $gold-color;
+        }
+      }
+    }
+    .underlined-holder {
+      a {
+        text-transform: lowercase;
+      }
+    }
+  }
+}
+
+// start media queries
+@include media(mobile) {
+  .contact {
+    padding: 180px 0 100px;
+  }
+}
+// end media queries

@@ -1,0 +1,23 @@
+@use "../../../SASS/Variables" as *;
+@use "../../../SASS/Mixins" as *;
+
+.clients-images {
+  margin-top: 50px;
+  .customer-img-holder {
+    margin-bottom: 20px;
+    .bg-div {
+      @include flex(row, center, center);
+      height: 100%;
+      background-color: #181715;
+      padding: 60px 30px;
+      transition: $transition;
+      &:hover {
+        background-color: $Hover-clients-BG-color;
+      }
+    }
+    img {
+      max-width: 100%;
+      object-fit: cover;
+    }
+  }
+}

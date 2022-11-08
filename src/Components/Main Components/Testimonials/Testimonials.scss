@@ -1,0 +1,29 @@
+@use "../../../SASS/Variables" as *;
+@use "../../../SASS/Mixins" as *;
+
+.testimonials-holder {
+  margin-top: 150px;
+  .customer-data {
+    margin-top: 25px;
+    .name {
+      font-size: 30px;
+      color: $pale-white;
+      text-transform: capitalize;
+    }
+    .customer-title {
+      display: inline-block;
+      text-transform: uppercase;
+      color: $main-text-color;
+      margin-top: 10px;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+// start media queries
+@include media(mobile) {
+  .testimonials-holder {
+    margin-top: 100px;
+  }
+}
+// end media queries

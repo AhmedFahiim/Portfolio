@@ -1,0 +1,71 @@
+@use "../../../SASS/Variables" as *;
+@use "../../../SASS/Mixins" as *;
+
+.info-box {
+  position: relative;
+  background-color: #181715;
+  border: 1px solid #151412;
+  margin-bottom: 30px;
+  padding: 42px 40px 43px;
+  &::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 20%;
+    background-color: rgba(#fff, 0.2);
+  }
+}
+
+.info-box-data {
+  .period-holder {
+    @include flex(row, flex-start, center);
+    .place-name {
+      color: $pale-white;
+      text-transform: uppercase;
+      font-size: 17px;
+      margin-right: 20px;
+    }
+    .period-time {
+      color: $main-text-color;
+    }
+  }
+  .title {
+    color: $pale-white;
+    margin: 15px 0;
+    font-size: 30px;
+    text-transform: capitalize;
+    font-weight: normal;
+    .project-duration,
+    .job-location {
+      position: relative;
+      left: 10px;
+      font-size: 16px;
+    }
+  }
+  .title-disc {
+    color: $main-text-color;
+    line-height: 1.7;
+  }
+}
+
+.info-box-price {
+  .start-word {
+    color: $main-text-color;
+    margin-bottom: 5px;
+  }
+  .price {
+    color: $gold-color;
+    font-size: 30px;
+  }
+}
+
+// start media queries
+@include media(mobile) {
+  .info-box {
+    padding: 20px;
+  }
+}
+// end media queries

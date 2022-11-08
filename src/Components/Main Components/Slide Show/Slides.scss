@@ -1,0 +1,49 @@
+@use "../../../SASS/Variables" as *;
+@use "../../../SASS/Mixins" as *;
+
+.swiper {
+  width: 130%;
+  padding-bottom: 40px !important;
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
+  .swiper-buttons-holder {
+    @include flex(row, space-between, center);
+    width: fit-content;
+    margin-top: 35px;
+    .swiper-button {
+      @include flex(row, center, center);
+      position: relative;
+      background-color: transparent;
+      color: $main-text-color;
+      transition: $transition;
+      outline: none;
+      font-size: 30px;
+      padding: 8px 12px;
+      cursor: pointer;
+      &::after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid $gold-color;
+        transition: $transition;
+        transform: scale(0);
+      }
+      &:hover::after {
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+// start media queries
+@include media(MobileToLarge) {
+  .swiper {
+    width: 100%;
+  }
+}
+// end media queries

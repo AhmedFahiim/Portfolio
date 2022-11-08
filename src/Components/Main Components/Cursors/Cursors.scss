@@ -1,0 +1,73 @@
+@use "../../../SASS/Variables" as *;
+@use "../../../SASS/Mixins" as *;
+
+.small-dot,
+.small-circle,
+.Big-circle,
+.slide-circle {
+  position: fixed;
+  z-index: 1000;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.small-dot,
+.small-circle,
+.slide-circle {
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  &.active {
+    opacity: 1;
+  }
+}
+.small-dot {
+  width: 6px;
+  height: 6px;
+  background-color: $main-text-color;
+  transition: left 0.06s, top 0.04s, opacity 0.2s;
+}
+.small-circle {
+  width: 30px;
+  height: 30px;
+  border: 2px solid $main-text-color;
+  transition: left 0.11s, top 0.09s, opacity 0.2s;
+}
+.Big-circle {
+  width: 70px;
+  height: 70px;
+  background-color: rgba(#fff, 0.2);
+  transform: translate(-50%, -50%) scale(0);
+  transition: left 0.06s, top 0.05s, transform $transition + 0.1;
+  &.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+.slide-circle {
+  width: 55px;
+  height: 55px;
+  border: 4px solid rgba(#fff, 0.5);
+  transition: left 0.07s, top 0.05s, opacity $transition;
+  .cursor-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: $pale-white;
+    &.left {
+      left: -90%;
+    }
+    &.right {
+      right: -90%;
+    }
+  }
+}
+
+// start media queries
+@include media(mobile) {
+  .small-dot,
+  .small-circle,
+  .Big-circle,
+  .slide-circle {
+    display: none;
+  }
+}
+// end media queries

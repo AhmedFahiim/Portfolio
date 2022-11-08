@@ -1,0 +1,25 @@
+@use "../../../SASS/Variables" as *;
+@use "../../../SASS/Mixins" as *;
+
+.social-icons {
+  @include flex(row, flex-start, center);
+  .social-platform {
+    @include flex(row, center, center);
+    background-color: rgba(255, 255, 255, 0.05);
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    transition: $transition;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    a {
+      @include flex(row, center, center);
+      padding: 10px;
+      color: $main-text-color;
+    }
+    .icon {
+      font-size: 19px;
+    }
+  }
+}

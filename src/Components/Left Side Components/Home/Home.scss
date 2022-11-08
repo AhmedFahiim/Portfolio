@@ -1,0 +1,25 @@
+@use "../../../SASS/Mixins" as *;
+
+.home {
+  @include flex(row, center, center);
+  height: 100vh;
+  .main-paragraph {
+    margin-top: 40px;
+  }
+  .sign {
+    position: relative;
+    top: 50px;
+    left: -20px;
+    width: 250px;
+    opacity: 0.8;
+  }
+}
+
+// start media queries
+@include media(mobile) {
+  .home {
+    height: auto;
+    padding: 80px 0;
+  }
+}
+// end media queries

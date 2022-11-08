@@ -1,0 +1,32 @@
+@use "../../../SASS/Variables" as *;
+@use "../../../SASS/Mixins" as *;
+
+.menu-bar {
+  position: absolute;
+  @include flex(row, flex-start, center);
+  right: 20px;
+  top: 20px;
+  width: fit-content;
+  cursor: pointer;
+  .menu-word {
+    font-size: 18px;
+    margin-right: 10px;
+    color: $pale-white;
+  }
+  .menu-icon {
+    position: relative;
+    top: 1px;
+    color: $pale-white;
+    font-size: 25px;
+  }
+}
+
+@include media(MobileToLarge) {
+  .menu-bar {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background-color: $Hover-clients-BG-color;
+    padding: 8px 10px;
+  }
+}

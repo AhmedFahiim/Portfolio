@@ -1,0 +1,27 @@
+@use "../../../SASS//Variables" as *;
+
+.underlined-holder {
+  position: relative;
+  width: fit-content;
+  margin-top: 35px;
+  &::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 1px;
+    background-color: $main-text-color;
+    transition: $transition;
+  }
+  &:hover::after {
+    background-color: $pale-white;
+  }
+  .text {
+    color: $pale-white;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    transition: $transition;
+  }
+}
